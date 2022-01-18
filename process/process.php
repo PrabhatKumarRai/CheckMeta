@@ -1,7 +1,5 @@
 <?php
 
-use FFI\CData;
-
 if( !empty( $_GET['website_url'] ) ){
 
         $url = $_GET['website_url'];
@@ -40,7 +38,7 @@ if( !empty( $_GET['website_url'] ) ){
                     $data[$tag] = !empty($temp)? $temp[1]: '';
                 }
 
-                return $data;
+                return $data + ["original response" => $file_content];
             }
             
             //Invalid URI

@@ -10,7 +10,7 @@ img{
 }
 
 body{
-    background: rgb(212, 224, 252);
+    background: #a3b8e9;
     padding: 50px 20%;
     font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
@@ -24,6 +24,12 @@ body{
         padding: 30px 20px;
     }
 }
+
+/* Container */
+.container{
+    width: 100%;
+}
+
 
 /* Header and Search Field Section */
 .header, .footer{
@@ -67,6 +73,7 @@ body{
     font-size: 18px;
     border-radius: 5px;
     min-height: 44px;
+    overflow-wrap: break-word;
 }
 
 /* Social Card Preview */
@@ -128,6 +135,28 @@ body{
     border-radius: 5px 5px 0 0;
 }
 
+/* Original Response */
+.original-response{
+}
+.content-head{
+    text-align: center;
+}
+.content-head a{
+    color: rgb(4, 4, 230);
+    text-decoration: none;
+}
+.content-head a:hover{
+    color: rgb(17, 17, 182);
+}
+.content-body{
+    display: none;
+    margin-top: 15px;
+    font-size: 14px;
+}
+.show{
+    display: block !important;
+}
+
 
 /* Footer */
 .footer {
@@ -136,8 +165,8 @@ body{
     align-items: center;
 }
 .footer hr{
-    width: 200px;
-    background: rgb(134, 134, 134);
+    width: 150px;
+    border-color: rgb(0, 0, 0);
 }
 .footer p{
     margin: 0 15px;

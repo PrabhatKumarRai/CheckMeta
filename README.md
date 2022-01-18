@@ -8,9 +8,15 @@ The application has a simple and user-friendly UI which make getting along real 
 * Google SERP preview
 * Meta Title and Description
 * Social/og:image preview
+* View the original fetched response (source code).
 
 ## Changelog
-### v1.0
+### v1.1.0
+* Options to view the original fetched response (source code).
+* Appearance modifications.
+* Bug fixes and improvements.
+
+### v1.0.0
 * Full Social Media card preview based on OpenGraph tags
 * Google SERP preview
 * Meta Title and Description

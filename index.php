@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check Meta</title>
-    <meta name="description" content="Check and Generate Website Meta tags">
+    <meta name="description" content="Check Website's Meta tags">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -49,7 +49,7 @@
                 ?>
 
                         <!-- Social Section -->
-                        <?php if( !empty($data['og_image']) || !empty($data['og_title']) || !empty($data['og_description']) ): ?>
+                        <?php if( !empty($data['og_image']) || !empty($data['og_title']) || !empty($data['og_description']) || !empty($data['seo_title']) || !empty($data['meta_description'])  ): ?>
                             <div class="section">
                                 <div class="section-head">
                                     <h2>Social Card Preview</h2>
@@ -63,12 +63,8 @@
                                     <?php endif; ?>
 
                                     <div class="social-card-content">
-                                        <?php if(!empty($data['og_title'])): ?>
-                                            <h3 class="social-card-title"><?= $data['og_title']; ?></h3>
-                                        <?php endif; ?>
-                                        <?php if(!empty($data['og_description'])): ?>
-                                            <p class="social-card-description"><?= $data['og_description']; ?></p>
-                                        <?php endif; ?>
+                                        <h3 class="social-card-title"><?= (!empty($data['og_title']))? $data['og_title']: $data['seo_title']; ?></h3>
+                                        <p class="social-card-description"><?= (!empty($data['og_description']))? $data['og_description']: $data['meta_description']; ?></p>
                                         <p class="social-card-url"><?= (!empty($data['og_url']))? $data['og_url']: strtolower($_GET['website_url']); ?></p>
                                     </div>
                                 </div>
@@ -90,7 +86,7 @@
                             </div>
                         <?php endif; ?>
 
-                        <!-- SEO Title -->
+                        <!-- SEO/Meta Title -->
                         <div class="section">
                             <div class="section-head">
                                 <h2>Title</h2>
@@ -100,6 +96,7 @@
                                 <h3><?= !empty($data['seo_title'])? $data['seo_title']: ''; ?></h3>
                             </div>
                         </div>
+
 
                         <!-- Meta Description -->
                         <div class="section">
@@ -113,6 +110,7 @@
                         </div>
 
                         <!-- OG Image -->
+                        <?php if(!empty($data['og_image'])): ?>
                         <div class="section">
                             <div class="section-head">
                                 <h2>Social Image</h2>
@@ -124,6 +122,23 @@
                                 </div>
                                 <img src="<?= $data['og_image']; ?>" alt="">
                             <?php endif; ?>
+                        </div>
+                        <?php endif; ?>
+
+                        <!-- Origianl Response -->
+                        <div class="section original-response">
+                            <div class="section-head">
+                                <h2>Original Response</h2>
+                                <p>Entire fetched response.</p>
+                            </div>
+                            <div class="section-content">
+                                <div class="content-head">
+                                    <a href="" id="show-original-response-link">Toggle Response</a>
+                                </div>
+                                <div class="content-body">
+                                    <?= htmlentities($data['original response']); ?>
+                                </div>
+                            </div>                                    
                         </div>
 
                 <?php 
@@ -151,10 +166,20 @@
         <!-- Footer Section -->
         <div class="footer">
             <hr>
-            <p>Developed By Prabhat Rai</p>
+            <p>By Prabhat Rai</p>
             <hr>
         </div>
 
     </div>
+
+    <script>
+        //Toggle Original Response section
+        const link = document.querySelector("#show-original-response-link");
+        const originalResponseContentBody = document.querySelector(".content-body");
+        link.addEventListener('click', function(e){
+            e.preventDefault();
+            originalResponseContentBody.classList.toggle('show');            
+        });
+    </script>
 </body>
 </html>
