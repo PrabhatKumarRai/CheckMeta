@@ -3,14 +3,20 @@
     padding: 0;
     box-sizing: border-box;
     max-width: 100%;
+    overflow-wrap: break-word;
 }
 
 img{
     max-width: 100%;
 }
 
+a{
+    color: #111;
+    text-decoration: none;
+}
+
 body{
-    background: #a3b8e9;
+    background: #c7c8cb;
     padding: 50px 20%;
     font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
@@ -73,7 +79,6 @@ body{
     font-size: 18px;
     border-radius: 5px;
     min-height: 44px;
-    overflow-wrap: break-word;
 }
 
 /* Social Card Preview */
@@ -130,9 +135,44 @@ body{
     margin-bottom: 0px;
 }
 
-/* OG Image */
+/* Social Image */
 .og-image{
+    display: inline-block;
+}
+.og-image .section-content{
+    display: flex;
+    align-items: center;
     border-radius: 5px 5px 0 0;
+}
+.og-image h3{
+    font-size: 16px;
+}
+
+/* Social Image Properties */
+.og-image-properties{
+}
+.og-image-properties .section-content{
+    font-size: 16px;
+    overflow-x: auto;
+}
+.og-image-properties table{
+    width: 100%;
+    text-align: center;
+}
+.og-image-properties table td,
+.og-image-properties table th{
+    padding: 6px 0px;
+}
+
+/* Raw Data */
+.raw-data .section-content,
+.original-response .section-content{
+    padding: 0;
+}
+.raw-data a,
+.original-response a{
+    display: block;
+    padding: 10px 15px;
 }
 
 /* Original Response */
@@ -141,20 +181,24 @@ body{
 .content-head{
     text-align: center;
 }
-.content-head a{
-    color: rgb(4, 4, 230);
-    text-decoration: none;
-}
-.content-head a:hover{
-    color: rgb(17, 17, 182);
+.content-head a:hover .original-response .content-head{
+    background-color: rgb(17, 17, 182);
 }
 .content-body{
     display: none;
     margin-top: 15px;
-    font-size: 14px;
+    font-size: 12px;
+    padding: 0px 15px 10px;
 }
 .show{
     display: block !important;
+}
+.original-response pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
 

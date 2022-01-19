@@ -23,22 +23,27 @@ if( !empty( $_GET['website_url'] ) ){
             // Otherwise it will return an array of data
             if( is_bool($file_content) !== true ){
                 $data = [];
-            
+                          
                 $patterns = [
-                    "seo_title" => '/<title>(.*)<\/title>/',
-                    "meta_description" => '/<meta name="description" content="(.*)"(.*)>/',
-                    "og_image" => '/<meta property="og:image" content="(.*)"(.*)>/',
-                    "og_url" => '/<meta property="og:url" content="(.*)"(.*)>/',
-                    "og_title" => '/<meta property="og:title" content="(.*)"(.*)>/',
-                    "og_description" => '/<meta property="og:description" content="(.*)"(.*)>/'
+                    'seo_title' => '/<title.*?>(.*?)<\/title>/',
+                    'meta_description' => '/<meta.*?name="description".*?content="(.*?)".*?>/',
+                    'og_image' => '/<meta.*?property="og:image".*?content="(.*?)".*?>/',
+                    'og_url' => '/<meta.*?property="og:url".*?content="(.*?)".*?>/',
+                    'og_title' => '/<meta.*?property="og:title".*?content="(.*?)".*?>/',
+                    'og_description' => '/<meta.*?property="og:description".*?content="(.*?)".*?>/'
                 ];
+                
 
                 foreach( $patterns as $tag => $pattern ){
                     preg_match($pattern, $file_content, $temp);
                     $data[$tag] = !empty($temp)? $temp[1]: '';
                 }
-
-                return $data + ["original response" => $file_content];
+                
+                // echo '<pre>'; print_r($data); echo '</pre>';
+                return $data + [
+                    'original response' => htmlentities($file_content),
+                    'url' => $url
+                ];
             }
             
             //Invalid URI
@@ -61,5 +66,3 @@ if( !empty( $_GET['website_url'] ) ){
         }
 
     }
-
-?>
