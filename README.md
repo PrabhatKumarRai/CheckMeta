@@ -16,9 +16,9 @@ The application has a simple and user-friendly UI which make getting along real 
 ### v1.3.0
 * Option to Generate meta tags.
 * Modify the fetched meta data and generate meta tags with updated data.
-* Update social image preview if the social image is modifed.
-* Except social card preview, all the sections would be displayed as empty, if they are empty. Social card preview would not be shown if the meta tags and og tags are missing
-* Code optimization to make the application faster.
+* Update social image preview if the social image is modified.
+* Except social card preview, all the sections would be displayed as empty, if they are empty. Social card preview would not be shown if the meta tags and OG (OpenGraph) tags are missing
+* Code optimization to make the application lighter and faster.
 * Bug fixes and improvements.
 
 ### v1.2.0
