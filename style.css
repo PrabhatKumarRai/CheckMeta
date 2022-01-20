@@ -48,7 +48,8 @@ body{
     margin-bottom: 40px;
 }
 
-.header-bottom input, .header-bottom button{    
+.header-bottom input, 
+.header-bottom button{    
     padding: 5px;
     font-size: 20px;
 }
@@ -70,22 +71,43 @@ body{
 .section-head p{
     font-size: 14px;
 }
-.section-head h2, .section-content h3{
+.section-head h2, 
+.section-content h3{
     font-weight: 400;
 }
-.section-content{
+.section-content:not(.form-element-container),
+.section-content input,
+.section-content button{
     padding: 10px 15px;
     background: rgb(248, 248, 248);
     font-size: 18px;
     border-radius: 5px;
     min-height: 44px;
 }
+.section-content input,
+.section-content button{
+    width: 100%;
+    border: 0;
+}
+.section-content input:hover,
+.section-content button:hover,
+.original-response .section-content:hover,
+.raw-data .section-content:hover,
+#generate-meta-btn:hover{
+    background: #e7e7e7;
+    transition-duration: .2s;
+    cursor: pointer;
+}
+.section-content input:active,
+.section-content input:focus-visible{
+    outline: 0;
+}
 
 /* Social Card Preview */
 .social-card-preview{
     max-width: 400px;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 !important;
     border-radius: 0;
     box-shadow: 3px 3px 2px #9b9a9a;
 }
@@ -106,7 +128,8 @@ body{
 .social-card-description{
     margin-bottom: 8px;
 }
-.section-content h3, .social-card-description{
+.section-content input, 
+.social-card-description{
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -117,7 +140,8 @@ body{
 /* Google SERP Preview */
 .google-serp-preview{    
 }
-.google-serp-preview-breadcrumb-link, .google-serp-preview-description{
+.google-serp-preview-breadcrumb-link, 
+.google-serp-preview-description{
     font-size: 14px;
     color: #202124;
     margin-bottom: 6px;
@@ -199,6 +223,21 @@ body{
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+/* Generate Meta Tags */
+.generate-meta-tags .section-content{
+    background: rgb(248, 248, 248);
+    border-radius: 5px;
+}
+.generate-meta-tags .section-content button{
+    border-radius: 0px;
+    background: rgb(248, 248, 248);
+}
+.generate-meta-tags pre{
+    padding: 0 15px;
+    overflow-y: auto;
+    font-size: 15px;
 }
 
 

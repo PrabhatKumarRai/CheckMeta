@@ -1,5 +1,5 @@
-<?php 
-if(isset($_GET['website_url'])){    
-    include_once __DIR__."/process/process.php";
+<?php
+include_once __DIR__.'/includes/process.php';
+if(isset($data)){
     echo '<pre>'; print_r($data); echo '</pre>';
 }
